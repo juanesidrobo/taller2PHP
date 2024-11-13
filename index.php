@@ -30,8 +30,9 @@ if (!isset($_SESSION['nombre_usuario'])) {
             padding: 40px;
             border-radius: 8px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            width: 80%;
-            max-width: 500px;
+            
+            max-width: 800px;
+            width: 90% ;
         }
         .header {
             font-weight: 800;
@@ -58,7 +59,7 @@ if (!isset($_SESSION['nombre_usuario'])) {
             gap: 5px;
         }
         .logout img {
-            width: 20px;
+            
             height: 20px;
         }
         .logout:hover {
@@ -68,6 +69,7 @@ if (!isset($_SESSION['nombre_usuario'])) {
             display: flex;
             justify-content: space-around;
             margin-top: 30px;
+            gap: 15px;
         }
         .option {
             text-align: center;
@@ -85,12 +87,13 @@ if (!isset($_SESSION['nombre_usuario'])) {
             align-items: center;
             justify-content: center;
             transition: background-color 0.3s;
+
         }
         .option:hover {
             background-color: #333333;
         }
         .option img {
-            width: 60px;
+            
             height: 60px;
             margin-bottom: 10px;
         }

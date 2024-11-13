@@ -78,7 +78,7 @@
             gap: 5px;
         }
         .logout img {
-            width: 20px;
+            
             height: 20px;
         }
         .logout:hover {

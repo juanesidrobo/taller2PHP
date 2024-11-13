@@ -85,7 +85,7 @@ if (!isset($_SESSION['nombre_usuario'])) {
             font-weight: bold;
         }
         .actions img {
-            width: 20px;
+           
             height: 20px;
             cursor: pointer;
             transition: transform 0.2s;
@@ -106,7 +106,7 @@ if (!isset($_SESSION['nombre_usuario'])) {
             gap: 5px;
         }
         .logout img {
-            width: 20px;
+            
             height: 20px;
         }
         .logout:hover {
