@@ -119,7 +119,7 @@ if (!isset($_SESSION['nombre_usuario'])) {
             </a>
 	    <a href="salario_grande.php" class="option">
                 <img src="empleados.png" alt="salarios">
-                SALARIOS GRANDES
+                VER SALARIOS MAYORES A 150000
             </a>
             <a href="department_managers.php" class="option">
                 <img src="empleados.png" alt="Gerentes">

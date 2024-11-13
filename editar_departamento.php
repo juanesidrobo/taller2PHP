@@ -147,6 +147,7 @@ if (!isset($_SESSION['nombre_usuario'])) {
             </thead>
             <tbody>
                 <?php
+                // Petición para obtener los departamentos
                 $query = "SELECT dept_no, dept_name FROM departments ORDER BY dept_no ASC";
                 $resultado = mysqli_query($conn, $query);
 
@@ -182,7 +183,6 @@ if (isset($_POST['bt_guardar_departamento'])) {
         echo "<div class='message'>Error al guardar el departamento: " . mysqli_error($conn) . "</div>";
     }
 }
-
         if (isset($_GET['delete_id'])) {
             $dept_no = $_GET['delete_id'];
 
@@ -198,7 +198,6 @@ if (isset($_POST['bt_guardar_departamento'])) {
             $dept_no = $_GET['edit_id'];
             $query = "SELECT * FROM departments WHERE dept_no = '$dept_no'";
             $resultado = mysqli_query($conn, $query);
-
             if (mysqli_num_rows($resultado) == 1) {
                 $fila = mysqli_fetch_array($resultado);
                 $dept_name = $fila['dept_name'];

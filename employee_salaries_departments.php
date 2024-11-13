@@ -1,5 +1,4 @@
 <?php include('conexiondb.php'); ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,9 +82,36 @@
             font-weight: bold;
             color: #545454;
         }
+        .logout {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 14px;
+            color: #545454;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .logout img {
+            width: 20px;
+            height: 20px;
+        }
+        .logout:hover {
+            color: #333333;
+        }
+        .message {
+            color: #ff0000;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
+    <a href="logout.php" class="logout">
+        Cerrar Sesión 
+        <img src="logout.png" alt="Logout Icon">
+    </a>
     <div class="container">
         <h2>Empleados, Salarios y Departamentos</h2>
         <table>
@@ -103,8 +129,7 @@
                 $limit = 30;
                 $page = isset($_GET['page']) ? $_GET['page'] : 1;
                 $offset = ($page - 1) * $limit;
-
-                // Query to get employees with their salaries and departments with limit and offset
+                // Peticion SQL para obtener los empleados, salarios y departamentos
                 $query = "SELECT e.first_name, e.last_name, s.salary, d.dept_name 
                           FROM employees e 
                           JOIN salaries s ON e.emp_no = s.emp_no 
@@ -112,7 +137,7 @@
                           JOIN departments d ON de.dept_no = d.dept_no 
                           LIMIT $limit OFFSET $offset";
                 $resultado = mysqli_query($conn, $query);
-
+                // Mostrar los resultados en la tabla
                 if (mysqli_num_rows($resultado) > 0) {
                     while ($fila = mysqli_fetch_array($resultado)) {
                         echo "<tr>";
@@ -123,12 +148,12 @@
                         echo "</tr>";
                     }
                 } else {
+                    // Mensaje si no se encuentran empleados
                     echo "<tr><td colspan='4' class='no-results'>No se encontraron empleados.</td></tr>";
                 }
                 ?>
             </tbody>
         </table>
-
         <?php
         // Pagination links
         $total_query = "SELECT COUNT(*) as total FROM employees e 
@@ -139,17 +164,14 @@
         $total_row = mysqli_fetch_assoc($total_result);
         $total_employees = $total_row['total'];
         $total_pages = ceil($total_employees / $limit);
-
         echo "<div class='pagination'>";
-        
-        // Previous page link
+        // Enlace a la página anterior
         if ($page > 1) {
             echo "<a href='employee_salaries_departments.php?page=" . ($page - 1) . "' class='prev-next'>&laquo;</a>";
         } else {
             echo "<span class='prev-next disabled'>&laquo;</span>";
         }
-
-        // Page number links
+        // Enlaces a las páginas
         for ($i = 1; $i <= $total_pages; $i++) {
             if ($i == $page) {
                 echo "<strong>$i</strong>";
@@ -157,8 +179,7 @@
                 echo "<a href='employee_salaries_departments.php?page=$i'>$i</a>";
             }
         }
-
-        // Next page link
+        // Enlace a la página siguiente
         if ($page < $total_pages) {
             echo "<a href='employee_salaries_departments.php?page=" . ($page + 1) . "' class='prev-next'>&raquo;</a>";
         } else {

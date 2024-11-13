@@ -95,10 +95,10 @@
         <h2>Empleados con Salario Mayor a 150,000</h2>
         <div class="card-grid">
             <?php
-            // Query to get employees with salary greater than 150000
+            //Peticion para obtener los empleados con salario mayor a 150,000
             $query = "SELECT e.first_name, e.last_name, s.salary FROM employees e JOIN salaries s ON e.emp_no = s.emp_no WHERE s.salary > 150000";
             $resultado = mysqli_query($conn, $query);
-
+            //Si se encuentran empleados con salario mayor a 150,000, se muestran en tarjetas
             if (mysqli_num_rows($resultado) > 0) {
                 while ($fila = mysqli_fetch_array($resultado)) {
                     echo "<div class='card'>";
@@ -107,6 +107,7 @@
                     echo "</div>";
                 }
             } else {
+                //Mensaje si no se encuentran empleados con salario mayor a 150,000
                 echo "<div class='no-results'>No se encontraron empleados con salario mayor a 150,000.</div>";
             }
             ?>
