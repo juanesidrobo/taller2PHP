@@ -12,6 +12,9 @@
     <ul>
         <li><a href="editar_departamento.php">Gestión de Departamentos</a></li>
         <li><a href="editar_empleado.php">Gestión de Empleados</a></li>
+        <li><a href="salario_grande.php">Salario mayor a 100.000</a></li>
+        <li><a href="department_managers.php">Personas que han sido gerentes</li>
+        <li><a href="employee_salaries_departments.php">Salarios y departamentos de los empleados</li>
     </ul>
 </body>
 </html>
